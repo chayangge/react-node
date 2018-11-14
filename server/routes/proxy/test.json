@@ -1,0 +1,12 @@
+{
+    "diantu": [
+        {
+            "method": ["GET"],
+            "path": "/ajax/location/get_address"
+        },
+        {
+            "method": ["POST"],
+            "path": "/api/dk/index4"
+        }
+    ]
+}
