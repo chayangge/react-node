@@ -1,6 +1,8 @@
-// const path = require('path');
+const fs = require('fs');
 const Koa = require('koa');
 const app = new Koa();
+let Rout = require('koa-router');
+let router = new Rout();
 let config;
 try {
     config = require('./config.json');
@@ -10,11 +12,26 @@ catch (ex) {
 }
 
 let {host, port} = config;
-app.use(ctx => {
+app.use((ctx,next) => {
     if (ctx.path === '/') {
-        ctx.body = 'hello test';
+        ctx.body = 'hello ccc';
+    }
+    else {
+        next()
     }
 });
+
+fs.readdirSync(__dirname + '/routes').filter((f) => {
+    return f.endsWith('.js');
+}).forEach(item => {
+    let sigRouter = require(__dirname+'/routes/'+item);
+    console.log('sigRouter',sigRouter);
+    sigRouter(router);
+});
+app.use(router.routes());
+
+
+
 app.listen(port, host, () => {
     console.log(`${host}:${port}`);
 });
