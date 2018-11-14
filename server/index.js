@@ -12,14 +12,14 @@ catch (ex) {
 }
 
 let {host, port} = config;
-app.use((ctx,next) => {
-    if (ctx.path === '/') {
-        ctx.body = 'hello ccc';
-    }
-    else {
-        next()
-    }
-});
+// app.use((ctx,next) => {
+//     if (ctx.path === '/') {
+//         ctx.body = 'hello ccc';
+//     }
+//     else {
+//         next()
+//     }
+// });
 
 fs.readdirSync(__dirname + '/routes').filter((f) => {
     return f.endsWith('.js');
