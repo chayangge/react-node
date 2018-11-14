@@ -14,10 +14,11 @@ let test = (router) => {
         // console.log('ctx.path----',ctx.path);
         // ctx.body = 'test success!!'
         // ctx.body = 'qqqqqq to shopping cart';
-        let html = fs.createReadStream('./index.html');
-        console.log(html);
+        // let html = fs.createReadStream(__dirname+'/index.html');
+        // console.log(html);
         ctx.response.type = 'html';
-        ctx.response.body = html;
+        ctx.response.body = fs.createReadStream('./index.html');;
+        // ctx.response.body = fs.createReadStream(__dirname+'/index.html');;
     });
 
     router.get('/test',async (ctx) => {
@@ -25,16 +26,16 @@ let test = (router) => {
         // ctx.body = 'test success!!'
         ctx.status = 302;
         ctx.redirect('http://baidu.com');
-        ctx.body = 'Redirecting to shopping cart';
+        // ctx.body = 'Redirecting to shopping cart';
     });
 
-    router.post('/test',async (ctx) => {
-        // console.log('ctx.path----',ctx.path);
-        // ctx.body = 'test success!!'
-        ctx.status = 302;
-        ctx.redirect('http://baidu.com');
-        ctx.body = 'Redirecting to shopping cart';
-    });
+    // router.post('/test',async (ctx) => {
+    //     // console.log('ctx.path----',ctx.path);
+    //     // ctx.body = 'test success!!'
+    //     ctx.status = 302;
+    //     ctx.redirect('http://baidu.com');
+    //     ctx.body = 'Redirecting to shopping cart';
+    // });
 };
 module.exports = test;
 
