@@ -21,16 +21,14 @@ let {host, port} = config;
 //     }
 // });
 
-fs.readdirSync(__dirname + '/routes').filter((f) => {
+fs.readdirSync(__dirname + '/dynamic-routes').filter((f) => {
     return f.endsWith('.js');
 }).forEach(item => {
-    let sigRouter = require(__dirname+'/routes/'+item);
-    console.log('sigRouter',sigRouter);
+    let sigRouter = require(__dirname + '/dynamic-routes/' + item);
     sigRouter(router);
 });
+
 app.use(router.routes());
-
-
 
 app.listen(port, host, () => {
     console.log(`${host}:${port}`);

@@ -1,9 +1,4 @@
 node_modules/
-.DS_Store
-.orig
-.swp
 config/config.json
 npm-debug.log
 view/index.html
-yarn-error.log
-.idea

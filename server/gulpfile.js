@@ -6,6 +6,6 @@ gulp.task('start', () => {
     nodemon({
         script: 'index.js',
         ext: 'js',
-        watch: ['index.js', 'routes', 'lib', 'models']
+        watch: ['index.js', 'dynamic-routes', 'static-routes', 'lib', 'model']
     });
 });
